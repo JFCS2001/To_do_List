@@ -1,0 +1,32 @@
+﻿@model To_do_List.Models.Task
+
+@{
+    ViewData["Title"] = "Crear Tareas";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="text-center">
+    <EditForm Model="@Model" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div>
+            <label>Nombre de la tarea</label>
+            <input id="Creacion" Value ="" class="form-control" type="text"/>
+        </div>
+        <br />
+        <div>
+            <label>Descripción de la tarea</label>
+            <input id="Descripcion" Value="" class="form-control" type="text" />
+        </div>
+        <br />
+        <div>
+            <label>Tiempo de ejecución</label>
+            <input id="tiempo" Value="" class="form-control" type="number" />
+        </div>
+        <br />
+        <div>
+            <button type="submit" class="btn btn-primary">Crear Tarea</button>
+        </div>
+    </EditForm>
+</div>
