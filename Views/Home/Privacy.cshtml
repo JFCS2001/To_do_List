@@ -3,30 +3,31 @@
 @{
     ViewData["Title"] = "Crear Tareas";
 }
+
 <h1>@ViewData["Title"]</h1>
 
 <div class="text-center">
-    <EditForm Model="@Model" OnValidSubmit="HandleValidSubmit">
+    <form asp-action="Create">
         <DataAnnotationsValidator />
         <ValidationSummary />
 
         <div>
             <label>Nombre de la tarea</label>
-            <input id="Creacion" Value ="" class="form-control" type="text"/>
+            <input asp-for=Name_Task id="Creacion" Value="" class="form-control" type="text" />
         </div>
         <br />
         <div>
             <label>Descripción de la tarea</label>
-            <input id="Descripcion" Value="" class="form-control" type="text" />
+            <input asp-for=Description_Task id ="Descripcion" Value="" class="form-control" type="text" />
         </div>
         <br />
         <div>
             <label>Tiempo de ejecución</label>
-            <input id="tiempo" Value="" class="form-control" type="number" />
+            <input asp-for=Time id="tiempo" Value="" class="form-control" type="number" />
         </div>
         <br />
         <div>
             <button type="submit" class="btn btn-primary">Crear Tarea</button>
         </div>
-    </EditForm>
+    </form>
 </div>
