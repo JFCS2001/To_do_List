@@ -55,12 +55,8 @@ namespace To_do_List.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id_Task,Name_Task,Description_Task,Time,Id_Status_Task")] Models.Task task)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(task);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+            _context.Add(task);
+            await _context.SaveChangesAsync();
             ViewData["Id_Status_Task"] = new SelectList(_context.Status_Tasks, "Id_Status_Task", "Name_Status_Task", task.Id_Status_Task);
             return View(task);
         }
